@@ -18,5 +18,19 @@ public class Node {
    return temp;
  }
  
+ public String getNext() {
+   return next.get();
+ }
  
+ public String setNext(String value) {
+   return next.set(value);
+ }
+ 
+ public String getEnd() {
+   return end.get();
+ }
+ 
+ public String setEnd(String value) {
+   return end.set(value);
+ }
 }
