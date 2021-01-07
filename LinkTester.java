@@ -2,18 +2,23 @@ public class LinkTester {
   public static void main(String[] args) {
     MyLinkedList link = new MyLinkedList();
     System.out.println(link.size());
-    link.add("hello");
+    link.add("hello0");
     System.out.println(link.size());
-    link.add("hello");
+    link.add("hello1");
     System.out.println(link.size());
-    link.add("hello");
+    link.add("hello2");
     System.out.println(link.size());
-    link.add("hello");
+    link.add("hello3");
     System.out.println(link.size());
-    link.add("hello");
+    link.add("hello4");
     System.out.println(link.size());
-    link.add("hello");
+    link.add("hello5");
     System.out.println(link.size());
     
+    System.out.println();
+    for (int i = 0; i<link.size(); i++) {
+      System.out.println(i);
+      System.out.println(link.get(i));
+    }
   }
 }
