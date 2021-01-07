@@ -20,5 +20,6 @@ public class LinkTester {
       System.out.println(i);
       System.out.println(link.get(i));
     }
+    System.out.println(link.toString());
   }
 }

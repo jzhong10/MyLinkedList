@@ -34,11 +34,21 @@ public class MyLinkedList {
     return n.get();
   }
   
+  public String toString() {
+    String retstr = "[";
+    Node n = start;
+    while (n.getNext()!=null) {
+      retstr += n.get();
+      retstr += ", ";
+      n = n.getNext();
+    }
+    retstr = retstr.substring(0, retstr.length()-2);
+    retstr += "]";
+    return retstr;
+  }
   /*
   public boolean add(int index, String value);
   public String set(int index, String value);
-  public String toString() {
-  }
   */
 
   //Any helper method that returns a Node object MUST BE PRIVATE!

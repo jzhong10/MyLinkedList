@@ -32,5 +32,15 @@ public class Node {
    return prev;
  }
  
+ public Node setNext(Node n) {
+   Node temp = next;
+   next = n;
+   return temp;
+ }
  
+ public Node setPrev(Node n) {
+   Node temp = prev;
+   prev = n;
+   return temp;
+ }
 }
