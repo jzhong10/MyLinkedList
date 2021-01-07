@@ -29,5 +29,15 @@ public class LinkTester {
     System.out.println(link.toString());
     link.add(4, "hmmm");
     System.out.println(link.toString());
+    
+    link.set(0, "8ball");
+    System.out.println(link.toString());
+    
+    link.set(link.size()-1, "8ball");
+    System.out.println(link.toString());
+    
+    link.set(1, "8ball");
+    System.out.println(link.toString());
+    
   }
 }

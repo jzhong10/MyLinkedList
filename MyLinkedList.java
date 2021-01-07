@@ -7,6 +7,7 @@ public class MyLinkedList {
     start = new Node();
     end = new Node();
     start.setNext(end);
+    end.setPrev(start);
   }
 
   public int size() {
@@ -21,6 +22,7 @@ public class MyLinkedList {
     } else if (size==1) {
         start.setNext(n);
         end = start.getNext();
+        end.setPrev(start); //
     } else {
         end.setNext(n);
         end = end.getNext();
@@ -50,6 +52,33 @@ public class MyLinkedList {
     size++;
   }
   
+  public String set(int index, String value) {
+    if (index<0 || index >= this.size()) {
+      throw new IndexOutOfBoundsException();
+    }
+    
+    Node insert = new Node(value);
+    Node n = getNode(index);
+    
+    String retstr = n.get();
+    
+    if (index==0) {
+      insert.setNext(n.getNext());
+      start = insert;
+    } else if (index==this.size()-1) {
+        n = getNode(index-1);
+        n.setNext(insert);
+        end = n;
+    } else {
+        Node left = getNode(index-1);
+        Node right = n.getNext();
+        left.setNext(insert);
+        insert.setNext(right);
+    }
+    
+    return retstr;
+  }
+  
   public String get(int index) {
     Node n = getNode(index);
     return n.get();
@@ -63,14 +92,13 @@ public class MyLinkedList {
       retstr += ", ";
       n = n.getNext();
     }
-    retstr = retstr.substring(0, retstr.length()-2);
+    if (retstr.length()>=2) {
+      retstr = retstr.substring(0, retstr.length()-2);
+      
+    }
     retstr += "]";
     return retstr;
   }
-  /*
-  public boolean add(int index, String value);
-  public String set(int index, String value);
-  */
 
   //Any helper method that returns a Node object MUST BE PRIVATE!
   private Node getNode(int index) {
