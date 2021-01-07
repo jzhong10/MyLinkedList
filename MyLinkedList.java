@@ -81,10 +81,12 @@ public class MyLinkedList {
         insert.setPrev(l);
         end = insert;
     } else {
-        Node left = getNode(index-1);
-        Node right = n.getNext();
-        left.setNext(insert);
-        insert.setNext(right);
+        Node l = n.getPrev();
+        Node r = n.getNext();
+        l.setNext(insert);
+        insert.setPrev(l);
+        insert.setNext(r);
+        r.setPrev(insert);
     }
     
     return retstr;
