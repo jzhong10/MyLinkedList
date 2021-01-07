@@ -41,15 +41,22 @@ public class MyLinkedList {
     Node insert = new Node(value);
     
     if (index==0) {
+      //insert.setNext(start);
+      //start = insert;
+      start.setPrev(insert);
       insert.setNext(start);
       start = insert;
     } else if (index==this.size()) {
         this.add(value);
     } else {
-        Node rightNode = getNode(index);
-        Node leftNode = getNode(index-1);
-        leftNode.setNext(insert);
-        insert.setNext(rightNode);
+        Node n = getNode(index);
+        Node l = n.getPrev();
+        
+        l.setNext(insert);
+        insert.setNext(n);
+        
+        n.setPrev(insert);
+        insert.setPrev(l);
     } 
     size++;
   }
