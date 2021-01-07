@@ -41,13 +41,12 @@ public class MyLinkedList {
     Node insert = new Node(value);
     
     if (index==0) {
-      //insert.setNext(start);
-      //start = insert;
       start.setPrev(insert);
       insert.setNext(start);
       start = insert;
     } else if (index==this.size()) {
         this.add(value);
+        size--;
     } else {
         Node n = getNode(index);
         Node l = n.getPrev();
@@ -72,12 +71,15 @@ public class MyLinkedList {
     String retstr = n.get();
     
     if (index==0) {
-      insert.setNext(n.getNext());
+      Node r = n.getNext();
+      r.setPrev(insert);
+      insert.setNext(r);
       start = insert;
     } else if (index==this.size()-1) {
-        n = getNode(index-1);
-        n.setNext(insert);
-        end = n;
+        Node l = n.getPrev();
+        l.setNext(insert);
+        insert.setPrev(l);
+        end = insert;
     } else {
         Node left = getNode(index-1);
         Node right = n.getNext();
@@ -89,6 +91,10 @@ public class MyLinkedList {
   }
   
   public String get(int index) {
+    if (index<0 || index >= this.size()) {
+      throw new IndexOutOfBoundsException();
+    }
+    
     Node n = getNode(index);
     return n.get();
   }
