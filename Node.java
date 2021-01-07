@@ -4,12 +4,18 @@ public class Node {
  private Node next, prev;
  //write get/set methods for all three instance variables.
  
- public Node (String value) {
+ public Node(String value) {
    data = value;
+   next = new Node();
+   prev = new Node();
+ }
+ 
+ public Node() {
+   
  }
  
  public String get() {
-   return value;
+   return data;
  }
  
  public String set(String value) {
@@ -18,19 +24,13 @@ public class Node {
    return temp;
  }
  
- public String getNext() {
-   return next.get();
+ public Node getNext() {
+   return next;
  }
  
- public String setNext(String value) {
-   return next.set(value);
+ public Node getPrev() {
+   return prev;
  }
  
- public String getEnd() {
-   return end.get();
- }
  
- public String setEnd(String value) {
-   return end.set(value);
- }
 }
