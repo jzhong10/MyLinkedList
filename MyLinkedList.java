@@ -24,8 +24,10 @@ public class MyLinkedList {
         end = start.getNext();
         end.setPrev(start); //
     } else {
+        Node temp = end;
         end.setNext(n);
         end = end.getNext();
+        end.setPrev(temp);
     }
     size++;
     return true;
@@ -91,6 +93,22 @@ public class MyLinkedList {
       retstr += n.get();
       retstr += ", ";
       n = n.getNext();
+    }
+    if (retstr.length()>=2) {
+      retstr = retstr.substring(0, retstr.length()-2);
+      
+    }
+    retstr += "]";
+    return retstr;
+  }
+  
+  public String toStringRev() {
+    String retstr = "[";
+    Node n = end;
+    while (n.getPrev()!=null) {
+      retstr += n.get();
+      retstr += ", ";
+      n = n.getPrev();
     }
     if (retstr.length()>=2) {
       retstr = retstr.substring(0, retstr.length()-2);
