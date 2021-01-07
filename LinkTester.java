@@ -21,5 +21,13 @@ public class LinkTester {
       System.out.println(link.get(i));
     }
     System.out.println(link.toString());
+    
+    link.add(0, "haa?");
+    System.out.println(link.toString());
+    
+    link.add(1, "hmmm");
+    System.out.println(link.toString());
+    link.add(4, "hmmm");
+    System.out.println(link.toString());
   }
 }

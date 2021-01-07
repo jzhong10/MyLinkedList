@@ -29,6 +29,27 @@ public class MyLinkedList {
     return true;
   }
   
+  public void add(int index, String value) {
+    if (index<0 || index > this.size()) {
+      throw new IndexOutOfBoundsException();
+    }
+    
+    Node insert = new Node(value);
+    
+    if (index==0) {
+      insert.setNext(start);
+      start = insert;
+    } else if (index==this.size()) {
+        this.add(value);
+    } else {
+        Node rightNode = getNode(index);
+        Node leftNode = getNode(index-1);
+        leftNode.setNext(insert);
+        insert.setNext(rightNode);
+    } 
+    size++;
+  }
+  
   public String get(int index) {
     Node n = getNode(index);
     return n.get();
