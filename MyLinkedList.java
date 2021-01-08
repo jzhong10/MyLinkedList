@@ -132,6 +132,12 @@ public class MyLinkedList {
     return retstr;
   }
   
+  public void extend(MyLinkedList other) {
+    while (other.size()>0) {
+      this.add(other.remove(0));
+    }
+  }
+  
   public String toString() {
     String retstr = "[";
     Node n = start;
