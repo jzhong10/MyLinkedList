@@ -24,10 +24,13 @@ public class MyLinkedList {
         end = start.getNext();
         end.setPrev(start); //
     } else {
-        Node temp = end;
+        // Node temp = end;
+        // end.setNext(n);
+        // end = end.getNext();
+        // end.setPrev(temp);
         end.setNext(n);
-        end = end.getNext();
-        end.setPrev(temp);
+        n.setPrev(end);
+        end = n;
     }
     size++;
     return true;
@@ -101,6 +104,29 @@ public class MyLinkedList {
     return n.get();
   }
   
+  public String remove(int index) {
+    if (index<0 || index >= this.size()) {
+      throw new IndexOutOfBoundsException();
+    }
+    
+    Node n = getNode(index);
+    String retstr = n.get();
+    
+    if (index==0) {
+      Node r = start.getNext();
+      r.setPrev(new Node());
+      start = r;
+    } else if (index==size-1) {
+        Node l = end.getPrev();
+        l.setNext(new Node());
+        end = l;
+    } else {
+      
+    }
+    size--;
+    return retstr;
+  }
+  
   public String toString() {
     String retstr = "[";
     Node n = start;
@@ -118,6 +144,22 @@ public class MyLinkedList {
   }
   
   public String toStringRev() {
+    String retstr = "[";
+    Node n = end;
+    while (n.getPrev()!=null) {
+      retstr += n.get();
+      retstr += ", ";
+      n = n.getPrev();
+    }
+    if (retstr.length()>=2) {
+      retstr = retstr.substring(0, retstr.length()-2);
+      
+    }
+    retstr += "]";
+    return retstr;
+  }
+  
+  public String toStringReversed() {
     String retstr = "[";
     Node n = end;
     while (n.getPrev()!=null) {
