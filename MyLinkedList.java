@@ -24,10 +24,6 @@ public class MyLinkedList {
         end = start.getNext();
         end.setPrev(start); //
     } else {
-        // Node temp = end;
-        // end.setNext(n);
-        // end = end.getNext();
-        // end.setPrev(temp);
         end.setNext(n);
         n.setPrev(end);
         end = n;
@@ -154,6 +150,7 @@ public class MyLinkedList {
     return retstr;
   }
   
+  //my tester used this function initially and I didn't want to change all the Rev to reversed
   public String toStringRev() {
     String retstr = "[";
     Node n = end;
