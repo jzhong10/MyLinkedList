@@ -43,7 +43,7 @@ public class MyLinkedList {
     
     Node insert = new Node(value);
     
-    if (index==0) {
+    if (this.size()!=0 && index==0) {
       start.setPrev(insert);
       insert.setNext(start);
       start = insert;
@@ -116,13 +116,18 @@ public class MyLinkedList {
       Node r = start.getNext();
       r.setPrev(new Node());
       start = r;
-    } else if (index==size-1) {
+    } 
+    if (index==size-1) {
         Node l = end.getPrev();
         l.setNext(new Node());
         end = l;
     } else {
-      
+        Node r = n.getPrev();
+        Node l = n.getNext();
+        r.setNext(l);
+        l.setPrev(r);
     }
+    
     size--;
     return retstr;
   }
