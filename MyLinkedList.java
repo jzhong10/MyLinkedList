@@ -4,10 +4,9 @@ public class MyLinkedList {
   
   public MyLinkedList() {/*create a constructor*/
     size = 0;
-    start = new Node();
-    end = new Node();
-    start.setNext(end);
-    end.setPrev(start);
+    Node n = new Node();
+    start = n;
+    end = n;
   }
 
   public int size() {
@@ -143,8 +142,7 @@ public class MyLinkedList {
       n = n.getNext();
     }
     if (retstr.length()>=2) {
-      retstr = retstr.substring(0, retstr.length()-2);
-      
+      retstr = retstr.substring(0, retstr.length()-2);  
     }
     retstr += "]";
     return retstr;
