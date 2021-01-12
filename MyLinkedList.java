@@ -67,6 +67,11 @@ public class MyLinkedList {
     Node n = getNode(index);
     
     String retstr = n.get();
+    if (size==1) {
+      start = insert;
+      end = insert;
+      return retstr;
+    }
     
     if (index==0) {
       Node r = n.getNext();
